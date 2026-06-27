@@ -1,29 +1,58 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>اضغط على الصورة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة متجاوبة وموزونة</title>
     <style>
+        /* إعدادات الشاشة الأساسية والتخلص من الفراغات */
         body {
-            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
             font-family: Arial, sans-serif;
-            margin-top: 50px;
+            background-color: #f9f9f9;
+            overflow: hidden; /* منع ظهور أشرطة التمرير المزعجة */
         }
-        img {
-            max-width: 950px;
-            height: auto;
-            border: 2px solid #ccc;
-            border-radius: 8px;
+
+        /* تنسيق النص ليصبح أكبر وحجمه عريض */
+        .header-text {
+            font-size: 1.8rem; /* تم تكبير الخط هنا */
+            font-weight: 900;  /* جعل النص عريضاً جداً Bold */
+            color: #111;       /* تعميق اللون الأسود ليصبح أكثر وضوحاً */
+            margin: 20px 0 10px 0;
+            text-align: center;
+            white-space: nowrap; /* إجبار النص على البقاء في سطر واحد فقط */
+        }
+
+        /* حاوية الرابط والصورة لضبط المساحة المتبقية */
+        .image-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            flex-grow: 1;
+            margin-bottom: 15px;
+        }
+
+        /* ضبط الصورة الحساس لكي تظهر بالكامل دون اختفاء الحواف */
+        .responsive-img {
+            max-width: 100%;
+            max-height: calc(100vh - 90px); /* تعديل الارتفاع ليتناسب مع الخط الأكبر */
+            object-fit: contain;
             cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <h2>للدخول للموقع التعريفي لقبيلة السراحين الرجاء الضغط على زر التشغيل</h2>
+    <div class="header-text">أهلاً بك، للدخول للموقع التعريفي لقبيلة السراحين الرجاء الضغط على زر التشغيل</div>
 
-    <a href="https://alsarahin.netlify.app/" target="_blank">
-        <img src="lounch.png" alt="اضغط هنا">
+    <a href="https://alsarahin.netlify.app/" target="_blank" class="image-link">
+        <img src="lounch.png" alt="اضغط هنا للانتقال للموقع" class="responsive-img">
     </a>
 
 </body>
