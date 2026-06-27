@@ -12,20 +12,21 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             font-family: Arial, sans-serif;
             background-color: #f9f9f9;
-            overflow: hidden; /* منع ظهور أشرطة التمرير المزعجة */
+            overflow-x: hidden; /* منع التمرير الأفقي المزعج وحماية أطراف الشاشة */
         }
 
-        /* تنسيق النص ليصبح أكبر وحجمه عريض */
+        /* تنسيق النص ليصبح أكبر وحجمه عريض ومتوافق مع الجوال */
         .header-text {
-            font-size: 1.8rem; /* تم تكبير الخط هنا */
+            font-size: clamp(1.4rem, 4vw, 2.2rem); /* تكبير ذكي يتناسق تلقائياً بين اللابتوب والجوال */
             font-weight: 900;  /* جعل النص عريضاً جداً Bold */
             color: #111;       /* تعميق اللون الأسود ليصبح أكثر وضوحاً */
-            margin: 20px 0 10px 0;
+            margin: 20px 15px 10px 15px;
             text-align: center;
-            white-space: nowrap; /* إجبار النص على البقاء في سطر واحد فقط */
+            line-height: 1.4;  /* إعطاء مسافة مريحة بين الأسطر عند انقسام النص في الجوال */
+            width: 90%;        /* ضمان عدم التصاق الحروف بجوانب الشاشات الصغيرة */
         }
 
         /* حاوية الرابط والصورة لضبط المساحة المتبقية */
@@ -36,13 +37,16 @@
             width: 100%;
             flex-grow: 1;
             margin-bottom: 15px;
+            padding: 0 10px;
+            box-sizing: border-box;
         }
 
-        /* ضبط الصورة الحساس لكي تظهر بالكامل دون اختفاء الحواف */
+        /* ضبط الصورة الحساس لكي تظهر بالكامل دون اختفاء الحواف على أي جهاز */
         .responsive-img {
             max-width: 100%;
-            max-height: calc(100vh - 90px); /* تعديل الارتفاع ليتناسب مع الخط الأكبر */
-            object-fit: contain;
+            height: auto;
+            max-height: 70vh; /* تحديد الارتفاع بدقة لتوفير مساحة كافية للنص المكبر */
+            object-fit: contain; /* تضمن ظهور الصورة كاملة داخل الإطار دون اقتطاع حوافها */
             cursor: pointer;
         }
     </style>
